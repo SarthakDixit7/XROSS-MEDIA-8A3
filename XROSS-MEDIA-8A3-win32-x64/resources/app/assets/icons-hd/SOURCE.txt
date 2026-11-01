@@ -1,0 +1,20 @@
+Stock PS3 XMB pictograms decoded from this user's locally installed firmware:
+dev_flash/vsh/resource/qgl/icontex.qrc
+
+These are the original 128x128 BGRA normal maps with their original silhouettes,
+rendered with neutral silver illumination. They are not redrawn vectors and do
+not use the low-resolution 46px RCO fallback images or the gold P3T theme.
+
+Output: 256x256 RGBA PNG. Each glyph's nontransparent bounds are centered with
+the longest visible dimension normalized to 192px, retaining its aspect ratio.
+The DDS rows are vertically flipped during export because the firmware texture
+storage is bottom-to-top; this keeps the briefcase, controller, note, and other
+symbols upright in the launcher. The normalization is intended for 96px or
+smaller UI boxes; the 256px canvas does not imply newly invented texture detail.
+No blur or glow is applied.
+
+Reproduce with scripts/extract-qrc-icons.cjs <local icontex.qrc> assets/icons-hd --assets
+dimensions.json records every original resource ID and source visible bounds.
+
+These Sony firmware-derived assets are for this local personal-use build.
+They are not covered by the XROSS-MEDIA-8A3 source code's MIT license.

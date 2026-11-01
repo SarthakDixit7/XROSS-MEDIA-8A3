@@ -1,0 +1,28 @@
+/* All category images use the same optical canvas; never stretch a sprite. */
+.firmware-icon {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+  filter: none;
+  user-select: none;
+  pointer-events: none;
+}
+.category-symbol > .firmware-icon {
+  width: 100%;
+  height: 100%;
+  flex: none;
+}
+.item-symbol > .firmware-icon {
+  width: calc(96px * var(--ui-scale));
+  height: calc(96px * var(--ui-scale));
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  filter: none;
+}
+.option-item > .firmware-icon,
+.setting-row > .firmware-icon { width: 25px; height: 25px; }
+#controller-status .firmware-icon { width: 23px; height: 23px; }

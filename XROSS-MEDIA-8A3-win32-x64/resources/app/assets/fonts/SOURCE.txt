@@ -1,0 +1,8 @@
+The three SCE-PS3-RD Latin fonts were copied from the user's locally installed
+RPCS3 dev_flash/data/font directory for this personal launcher on 2026-09-23.
+They are Sony/FONTWORKS firmware assets and are not covered by XROSS-MEDIA-8A3's MIT
+source-code license. The CSS family alias is "PS3 Rodin".
+
+The PSP emulator firmware contains PGF bitmap fonts, not a browser-compatible
+outline font. The launcher uses the real PS3 Rodin fonts for both XMB styles;
+it does not claim that a substituted desktop font is the exact PSP PGF font.

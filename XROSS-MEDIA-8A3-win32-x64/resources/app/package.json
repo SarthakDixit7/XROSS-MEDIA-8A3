@@ -1,0 +1,9 @@
+{
+  "name": "xross-media-8a3",
+  "productName": "XROSS-MEDIA-8A3",
+  "version": "1.3.0",
+  "description": "A fullscreen XMB-style hub for PS3, Windows and Steam games",
+  "main": "main.cjs",
+  "author": "",
+  "license": "MIT"
+}

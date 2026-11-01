@@ -1,0 +1,14 @@
+The runtime category pictograms in stock/ were extracted from the user's local
+RPCS3 PS3 firmware RCO resources on 2026-09-25:
+
+dev_flash/vsh/resource/explore_plugin_full.rco
+dev_flash/vsh/resource/explore_category_sysconf.rco
+
+They are the original compact XMB glyphs for User, Settings, Photo, Music,
+Video, Game, Network and system categories. The extractor is
+scripts/extract-rco-icons.cjs. The older *_src.png files are retained as local
+reference only and are not used by the renderer.
+
+These are Sony firmware assets for the user's personal launcher and are not
+covered by XROSS-MEDIA-8A3's MIT source-code license. Redistribution requires an
+independent rights assessment.

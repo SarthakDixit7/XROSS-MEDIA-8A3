@@ -1,0 +1,4 @@
+/* Personal-use assets from the user's installed PS3 firmware. */
+@font-face{font-family:"PS3 Rodin";src:url("SCE-PS3-RD-L-LATIN.TTF") format("truetype");font-style:normal;font-weight:300;font-display:swap}
+@font-face{font-family:"PS3 Rodin";src:url("SCE-PS3-RD-R-LATIN.TTF") format("truetype");font-style:normal;font-weight:400 500;font-display:swap}
+@font-face{font-family:"PS3 Rodin";src:url("SCE-PS3-RD-B-LATIN.TTF") format("truetype");font-style:normal;font-weight:600 900;font-display:swap}

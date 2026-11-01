@@ -44,34 +44,19 @@ blob_storage/
 Network/
 
 # ------------------------------------------------------------------------------
-# 2. Packaged Build Artifacts & Large Binaries (>100MB Exceeds GitHub Limit)
+# 2. Build Directories & Temp Outputs (Keep win32-x64 release build tracked via LFS)
 # ------------------------------------------------------------------------------
-# Packaged Electron distributions (e.g. 246MB executable, Chromium DLLs, pak files)
-XROSS-MEDIA-8A3-win32-x64/
-*-win32-*/
-*-darwin-*/
-*-linux-*/
 dist/
 build/
 out/
-
-# Binary files created during packaging or build
-*.dll
-*.pak
-*.bin
-*.dat
-locales/
-
-# Ignore compiled executables by default, but KEEP the required XInput bridge helper
-*.exe
-!assets/XInputBridge.exe
-!**/assets/XInputBridge.exe
 
 # ------------------------------------------------------------------------------
 # 3. Dependencies & Package Manager Artifacts
 # ------------------------------------------------------------------------------
 node_modules/
+**/node_modules/
 .package-lock.json
+**/node_modules/.package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -110,4 +95,3 @@ $RECYCLE.BIN/
 *.swp
 *.swo
 *~
-

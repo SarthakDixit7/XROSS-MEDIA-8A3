@@ -1,0 +1,266 @@
+{
+  "users": {
+    "source": "1n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 22,
+      "top": 27,
+      "width": 84,
+      "height": 75
+    },
+    "maxVisiblePixels": 192
+  },
+  "settings": {
+    "source": "2n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 23,
+      "top": 34,
+      "width": 86,
+      "height": 63
+    },
+    "maxVisiblePixels": 192
+  },
+  "photo": {
+    "source": "3n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 28,
+      "top": 34,
+      "width": 74,
+      "height": 62
+    },
+    "maxVisiblePixels": 192
+  },
+  "music": {
+    "source": "4n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 28,
+      "top": 26,
+      "width": 67,
+      "height": 75
+    },
+    "maxVisiblePixels": 192
+  },
+  "video": {
+    "source": "5n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 18,
+      "top": 32,
+      "width": 92,
+      "height": 62
+    },
+    "maxVisiblePixels": 192
+  },
+  "game": {
+    "source": "6n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 22,
+      "top": 33,
+      "width": 88,
+      "height": 56
+    },
+    "maxVisiblePixels": 192
+  },
+  "network": {
+    "source": "7n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 29,
+      "top": 28,
+      "width": 70,
+      "height": 71
+    },
+    "maxVisiblePixels": 192
+  },
+  "friends": {
+    "source": "8n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 26,
+      "top": 25,
+      "width": 79,
+      "height": 79
+    },
+    "maxVisiblePixels": 192
+  },
+  "update": {
+    "source": "9n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 26,
+      "top": 35,
+      "width": 79,
+      "height": 63
+    },
+    "maxVisiblePixels": 192
+  },
+  "display": {
+    "source": "17n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 4,
+      "top": 30,
+      "width": 102,
+      "height": 82
+    },
+    "maxVisiblePixels": 192
+  },
+  "sound": {
+    "source": "18n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 4,
+      "top": 29,
+      "width": 99,
+      "height": 83
+    },
+    "maxVisiblePixels": 192
+  },
+  "power": {
+    "source": "19n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 4,
+      "top": 32,
+      "width": 97,
+      "height": 80
+    },
+    "maxVisiblePixels": 192
+  },
+  "browser": {
+    "source": "35n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 28,
+      "top": 35,
+      "width": 94,
+      "height": 76
+    },
+    "maxVisiblePixels": 192
+  },
+  "playlist": {
+    "source": "37n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 19,
+      "top": 41,
+      "width": 89,
+      "height": 47
+    },
+    "maxVisiblePixels": 192
+  },
+  "playlist-add": {
+    "source": "38n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 35,
+      "top": 27,
+      "width": 57,
+      "height": 74
+    },
+    "maxVisiblePixels": 192
+  },
+  "user-add": {
+    "source": "46n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 21,
+      "top": 25,
+      "width": 82,
+      "height": 73
+    },
+    "maxVisiblePixels": 192
+  },
+  "play": {
+    "source": "47n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 26,
+      "top": 27,
+      "width": 76,
+      "height": 74
+    },
+    "maxVisiblePixels": 192
+  },
+  "user-edit": {
+    "source": "48n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 18,
+      "top": 24,
+      "width": 82,
+      "height": 81
+    },
+    "maxVisiblePixels": 192
+  },
+  "exit": {
+    "source": "55n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 29,
+      "top": 24,
+      "width": 70,
+      "height": 80
+    },
+    "maxVisiblePixels": 192
+  },
+  "search": {
+    "source": "56n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 33,
+      "top": 21,
+      "width": 77,
+      "height": 78
+    },
+    "maxVisiblePixels": 192
+  },
+  "keyboard": {
+    "source": "66n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 17,
+      "top": 17,
+      "width": 94,
+      "height": 94
+    },
+    "maxVisiblePixels": 192
+  },
+  "video-add": {
+    "source": "69n",
+    "sourceSize": 128,
+    "outputSize": 256,
+    "sourceBounds": {
+      "left": 7,
+      "top": 22,
+      "width": 114,
+      "height": 84
+    },
+    "maxVisiblePixels": 192
+  }
+}
