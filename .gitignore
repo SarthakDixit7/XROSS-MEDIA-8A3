@@ -1,0 +1,112 @@
+# ==============================================================================
+# XROSS-MEDIA-8A3 .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. User Data & Sensitive Configurations (Personal Paths / Identifiers)
+# ------------------------------------------------------------------------------
+# User bootstrap configuration (contains absolute machine paths and user identities).
+# Use bootstrap.example.json as a template.
+bootstrap.json
+**/bootstrap.json
+!bootstrap.example.json
+!**/bootstrap.example.json
+
+# Runtime library database and user data
+library.json
+**/library.json
+artwork/
+**/artwork/
+user-data/
+**/user-data/
+userdata/
+**/userdata/
+data/
+storage/
+
+# Runtime SQLite / cache databases and Chromium storage state
+*.db
+*.db-journal
+*.sqlite
+Local State
+Preferences
+declarative_performance_observer.db*
+DIPS*
+Cache/
+Code Cache/
+GPUCache/
+DawnWebGPUCache/
+DawnGraphiteCache/
+Local Storage/
+Session Storage/
+Shared Dictionary/
+blob_storage/
+Network/
+
+# ------------------------------------------------------------------------------
+# 2. Packaged Build Artifacts & Large Binaries (>100MB Exceeds GitHub Limit)
+# ------------------------------------------------------------------------------
+# Packaged Electron distributions (e.g. 246MB executable, Chromium DLLs, pak files)
+XROSS-MEDIA-8A3-win32-x64/
+*-win32-*/
+*-darwin-*/
+*-linux-*/
+dist/
+build/
+out/
+
+# Binary files created during packaging or build
+*.dll
+*.pak
+*.bin
+*.dat
+locales/
+
+# Ignore compiled executables by default, but KEEP the required XInput bridge helper
+*.exe
+!assets/XInputBridge.exe
+!**/assets/XInputBridge.exe
+
+# ------------------------------------------------------------------------------
+# 3. Dependencies & Package Manager Artifacts
+# ------------------------------------------------------------------------------
+node_modules/
+.package-lock.json
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+
+# ------------------------------------------------------------------------------
+# 4. Environment Variables & Secrets
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.*.local
+*.env
+*.pem
+*.key
+*.cert
+
+# ------------------------------------------------------------------------------
+# 5. OS & Editor Artifacts
+# ------------------------------------------------------------------------------
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

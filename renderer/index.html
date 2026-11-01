@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' data:; font-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>XROSS-MEDIA-8A3 — Game Hub</title><link rel="stylesheet" href="../assets/fonts/fonts.css"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="firmware-icons.css"><link rel="stylesheet" href="media-center.css">
+</head>
+<body data-theme="ocean" data-animations="on" class="booting">
+<div class="background" aria-hidden="true"><div class="colour-field"></div><img id="game-background" class="game-background" alt=""><canvas id="idle-wave-canvas" class="ribbon-canvas"></canvas><div class="background-shade"></div></div>
+<div class="drag-strip"></div>
+<div class="window-controls"><button id="fullscreen" aria-label="Toggle fullscreen" title="Fullscreen (F11)" data-icon="expand"></button><button id="minimize" aria-label="Minimize" data-icon="minus"></button><button id="close" aria-label="Close" data-icon="close"></button></div>
+<div id="intro" class="intro"><canvas id="boot-wave-canvas" class="ribbon-canvas" aria-hidden="true"></canvas><div class="boot-content"><div class="boot-wordmark">XROSS-MEDIA-8A3</div><p>All your games. One place.</p></div><button id="skip-intro">Press any button to begin</button></div>
+<header class="information-bar"><button id="profile-badge" title="Edit profile"><span id="header-avatar" class="avatar"></span><span id="header-profile">Player</span></button><div class="header-divider"></div><span id="controller-status"></span><time id="clock"></time></header>
+<main id="xmb" aria-label="XrossMediaBar"><nav id="category-viewport" aria-label="Categories"><div id="category-track"></div></nav><section id="item-viewport" aria-label="Items in selected category"><div id="xmb-items"></div></section></main>
+<div id="collection-meta" class="collection-meta"></div>
+<div class="system-label"><span class="aura-label">XROSS-MEDIA-8A3</span><span id="system-status">Your game hub</span></div>
+<footer id="control-hints"><span><b class="controller-button a">A</b> Enter</span><span><b class="controller-button b">B</b> Back</span><span><b class="controller-button y">Y</b> Options</span><span><b class="controller-button x">X</b> Favorite</span><span class="keyboard-hint">← ↑ ↓ → &nbsp; Enter &nbsp; Esc</span></footer>
+<div id="transition-screen" aria-hidden="true"><span id="transition-icon"></span><h1 id="transition-title"></h1><p id="transition-subtitle"></p></div>
+<div id="toast" role="status" hidden></div>
+<dialog id="options-dialog" class="options-panel"><h2>Options</h2><div id="options-list"></div><p class="panel-hint"><b class="controller-button a">A</b> Enter &nbsp; <b class="controller-button b">B</b> Back</p></dialog>
+<dialog id="media-dialog" class="system-dialog media-dialog"></dialog>
+<dialog id="settings-dialog" class="system-dialog"><h2>System Settings</h2><div class="dialog-content">
+<button id="choose-emulator" class="setting-row"><span>RPCS3 Application<small id="emulator-path"></small></span><span class="value">Browse…</span></button>
+<label class="setting-row"><span>Startup Screen</span><select id="startup-select" aria-label="Startup screen"><option value="on">On</option><option value="off">Off</option></select></label>
+<label class="setting-row"><span>Startup Duration<small>Press any button to skip.</small></span><select id="boot-duration-select" aria-label="Startup duration"><option value="1">1 second</option><option value="2">2 seconds</option><option value="3">3 seconds</option><option value="4">4 seconds</option><option value="5">5 seconds</option></select></label>
+<label class="setting-row"><span>Menu &amp; Launch Animations</span><select id="animations-select" aria-label="Menu and launch animations"><option value="on">On</option><option value="off">Off</option></select></label>
+<label class="setting-row"><span>Minimize During Gameplay</span><select id="minimize-select" aria-label="Minimize during gameplay"><option value="on">On</option><option value="off">Off</option></select></label>
+<label class="setting-row"><span>Skip RPCS3 Window<small>Start PS3 games directly.</small></span><select id="nogui-select" aria-label="Skip RPCS3 window"><option value="on">On</option><option value="off">Off</option></select></label>
+<label class="setting-row"><span>Library Order</span><select id="sort-select" aria-label="Library order"><option value="manual">Date added</option><option value="title">Title A–Z</option><option value="recent">Recently played</option></select></label>
+</div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<dialog id="theme-dialog" class="system-dialog"><h2>Display &amp; Theme</h2><div class="dialog-content">
+<label class="setting-row"><span>Theme Colour</span><select id="theme-select" aria-label="Theme colour"><option value="ocean">Original Blue</option><option value="midnight">Midnight</option><option value="violet">Violet</option><option value="pearl">Silver</option><option value="amber">Amber</option><option value="emerald">Emerald</option><option value="rose">Rose</option></select></label>
+<label class="setting-row"><span>Wave Style</span><select id="wave-style-select" aria-label="Wave style"><option value="ps3">PS3 · luminous ribbon</option><option value="psp">PSP · flowing wave</option></select></label>
+<label class="setting-row"><span>Wave Animation</span><select id="wave-enabled-select" aria-label="Wave animation"><option value="on">On</option><option value="off">Off</option></select></label>
+<label class="setting-row"><span>Wave Speed</span><span class="range-control"><input id="wave-speed" type="range" min="25" max="200" step="5" aria-label="Wave speed"><output id="wave-speed-value"></output></span></label>
+<label class="setting-row"><span>Wave Brightness</span><span class="range-control"><input id="wave-opacity" type="range" min="10" max="100" step="5" aria-label="Wave brightness"><output id="wave-opacity-value"></output></span></label>
+<label class="setting-row"><span>Game Background Artwork</span><select id="artwork-select" aria-label="Game background artwork"><option value="on">On</option><option value="off">Off</option></select></label>
+<label class="setting-row"><span>Text &amp; Icon Size</span><span class="range-control"><input id="ui-scale" type="range" min="80" max="130" step="5" aria-label="Text and icon size"><output id="ui-scale-value"></output></span></label>
+<button id="choose-font" class="setting-row"><span>Menu Font<small id="font-description">PS3 Rodin</small></span><span class="value">Choose TTF / OTF…</span></button>
+<button id="reset-font" class="setting-row"><span>Restore Console Font</span><span class="value">Rodin</span></button>
+</div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<dialog id="profile-dialog" class="system-dialog"><h2>Your Profile</h2><div class="dialog-content"><div class="profile-preview"><span id="profile-preview-avatar" class="avatar avatar-large"></span><div><strong id="profile-preview-name">Player</strong><p id="profile-library-stats"></p></div></div>
+<label class="input-label" for="profile-name">Profile name</label><input id="profile-name" class="text-input" maxlength="40" aria-label="Profile name">
+<button id="save-profile" class="setting-row"><span>Save Profile Name</span><span data-icon="check"></span></button>
+<button id="choose-avatar" class="setting-row"><span>Profile Picture</span><span class="value">Choose photo…</span></button><button id="reset-avatar" class="setting-row"><span>Remove Profile Picture</span><span class="value">Use default</span></button>
+<label class="setting-row"><span>Clock Format</span><select id="clock-format-select" aria-label="Clock format"><option value="24">24 hour</option><option value="12">12 hour</option></select></label><label class="setting-row"><span>Show Seconds</span><select id="seconds-select" aria-label="Show seconds"><option value="on">On</option><option value="off">Off</option></select></label>
+</div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<dialog id="sound-dialog" class="system-dialog"><h2>Sound Settings</h2><div class="dialog-content"><label class="setting-row"><span>Menu Sounds</span><select id="sound-select" aria-label="Menu sounds"><option value="on">On</option><option value="off">Off</option></select></label><label class="setting-row"><span>Volume</span><span class="range-control"><input id="volume" type="range" min="0" max="100" step="5" aria-label="Menu volume"><output id="volume-value"></output></span></label><div id="sound-rows"></div><p class="help-text">PSP startup chime and PS3 navigation sounds are included. You can choose your own audio for each action.</p></div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<dialog id="controller-dialog" class="system-dialog"><h2>Controller Settings</h2><div class="dialog-content"><p id="controller-detail" class="controller-detail"></p><div class="control-map"><p><span>D-pad / Left Stick</span><span>Navigate the XMB or a choice list</span></p><p><span>A</span><span>Select, open a choice list, or type</span></p><p><span>B</span><span>Cancel choice / Go back</span></p><p><span>Left / Right in Settings</span><span>Change values and sliders</span></p><p><span>X</span><span>Favorite the selected game</span></p><p><span>Y</span><span>Game options and artwork</span></p><p><span>LB / RB</span><span>Previous / Next category</span></p><p><span>Menu / Start</span><span>Toggle fullscreen</span></p></div><p class="help-text">Connect by USB, Bluetooth, or Xbox Wireless. Native Windows file pickers use the mouse/keyboard. RPCS3 and Windows games handle their own controllers during gameplay.</p><button id="controller-test" class="setting-row"><span>Last Controller Input</span><span id="controller-last-input" class="value">Press a button</span></button></div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<dialog id="add-dialog" class="system-dialog"><h2>Add to Your Collection</h2><div class="dialog-content">
+<button id="import-exe" class="setting-row"><span>Windows Game<small>Select a game’s .exe file.</small></span><span data-icon="windows"></span></button>
+<button id="import-shortcut" class="setting-row"><span>Steam / Desktop Shortcut<small>Select a Steam .url or Windows .lnk shortcut.</small></span><span data-icon="steam"></span></button>
+<button id="import-folder" class="setting-row"><span>PS3 Game Folder<small>Select an extracted game or PS3_GAME folder.</small></span><span data-icon="game"></span></button>
+<button id="import-scan" class="setting-row"><span>Scan PS3 Library<small>Find games inside a folder.</small></span><span data-icon="search"></span></button>
+<button id="import-file" class="setting-row"><span>PS3 Boot File<small>Select USRDIR/EBOOT.BIN directly.</small></span><span data-icon="file"></span></button>
+<p class="help-text">For Steam: right-click a game in Steam → Manage → Add desktop shortcut. After adding any game here, press Y → Artwork &amp; Details to choose a cover and background.</p>
+</div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<dialog id="manage-dialog" class="system-dialog"><h2>Artwork &amp; Details</h2><div class="dialog-content"><div id="game-art-preview" class="game-art-preview"></div><label class="input-label" for="game-name">Game title</label><input id="game-name" class="text-input" maxlength="160" aria-label="Game title"><p id="game-serial" class="help-text"></p><p id="game-path" class="help-text file-path"></p>
+<button id="save-game-name" class="setting-row"><span>Save Title</span><span data-icon="check"></span></button>
+<button id="choose-cover" class="setting-row"><span>Game Cover / Icon</span><span class="value">Choose photo…</span></button><button id="choose-background" class="setting-row"><span>Fullscreen Background</span><span class="value">Choose photo…</span></button>
+<button id="reset-cover" class="setting-row"><span>Reset Cover</span><span class="value">Original</span></button><button id="reset-background" class="setting-row"><span>Reset Background</span><span class="value">Original</span></button>
+<button id="toggle-favorite" class="setting-row"><span>Favorite</span><span id="favorite-value" class="value"></span></button><button id="remove-game" class="setting-row danger-row"><span>Remove from Collection</span><span data-icon="minus"></span></button>
+</div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<dialog id="remove-dialog" class="system-dialog small-dialog"><h2>Remove from Collection</h2><div class="dialog-content"><p id="remove-title"></p><p class="help-text">This removes the entry from XROSS-MEDIA-8A3. Your game files and saves stay on disk.</p><button id="confirm-remove" class="setting-row"><span>Remove Entry</span></button><button class="setting-row" data-dismiss><span>Keep It</span></button></div></dialog>
+<dialog id="info-dialog" class="system-dialog small-dialog"><h2 id="info-title"></h2><div id="info-content" class="dialog-content"></div><button class="dialog-back" data-dismiss>Back</button></dialog>
+<script type="module" src="app.js"></script>
+</body></html>
