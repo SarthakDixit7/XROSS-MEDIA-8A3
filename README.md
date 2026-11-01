@@ -1,7 +1,17 @@
 # XROSS-MEDIA-8A3 Game Hub 1.3
 
-Open `XROSS-MEDIA-8A3.exe` inside the `XROSS-MEDIA-8A3-win32-x64` folder. Every session starts
-fullscreen. Keep the other files and folders beside the executable.
+A fullscreen XMB-style hub for PS3, Windows and Steam games.
+
+## Download (Windows)
+
+To download and run without needing Node.js or development tools:
+
+1. Go to the [Releases](https://github.com/SarthakDixit7/XROSS-MEDIA-8A3/releases) section.
+2. Download **`XROSS-MEDIA-8A3-v1.3.0-win32-x64.zip`**.
+3. Extract the ZIP anywhere on your PC.
+4. Run `XROSS-MEDIA-8A3.exe` to start fullscreen. Keep the other files and folders beside the executable.
+
+---
 
 ## Your collection
 
